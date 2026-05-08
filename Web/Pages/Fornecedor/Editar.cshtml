@@ -1,0 +1,65 @@
+@page "{id:int}"
+@model nIKernel.Pages.Fornecedor.EditarModel
+@{
+    ViewData["Title"] = "Editar Fornecedor";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning text-dark">
+            <h3 class="mb-0">Editar Fornecedor</h3>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <input type="hidden" asp-for="Fornecedor.Id" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Fornecedor.NomeFantasia" class="form-label font-weight-bold">Nome Fantasia (Apelido)</label>
+                        <input asp-for="Fornecedor.NomeFantasia" class="form-control" placeholder="Ex: Tech Soluções" />
+                        <span asp-validation-for="Fornecedor.NomeFantasia" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Fornecedor.Cnpj" class="form-label font-weight-bold">CNPJ</label>
+                        <input asp-for="Fornecedor.Cnpj" class="form-control" placeholder="00.000.000/0001-00" />
+                        <span asp-validation-for="Fornecedor.Cnpj" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Fornecedor.EnderecoCompleto" class="form-label font-weight-bold">Endereço Completo</label>
+                    <textarea asp-for="Fornecedor.EnderecoCompleto" class="form-control" rows="2" placeholder="Rua, Número, Bairro, Cidade - UF"></textarea>
+                    <span asp-validation-for="Fornecedor.EnderecoCompleto" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Fornecedor.Email" class="form-label font-weight-bold">E-mail de Contato</label>
+                        <input asp-for="Fornecedor.Email" type="email" class="form-control" placeholder="exemplo@email.com" />
+                        <span asp-validation-for="Fornecedor.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Fornecedor.Telefone" class="form-label font-weight-bold">Telefone / WhatsApp</label>
+                        <input asp-for="Fornecedor.Telefone" class="form-control" placeholder="(00) 00000-0000" />
+                        <span asp-validation-for="Fornecedor.Telefone" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-page="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </a>
+                    <button type="submit" class="btn btn-warning px-4">
+                        <i class="fas fa-save"></i> Atualizar Dados
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
