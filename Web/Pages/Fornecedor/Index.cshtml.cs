@@ -23,5 +23,11 @@ namespace nIKernel.Pages.Fornecedor
             ListaFornecedores = await _FornecedorRepo.GetAllAsync();
             return Page();
         }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            await _FornecedorRepo.DeleteAsync(id);
+            return RedirectToPage();
+        }
     }
 }

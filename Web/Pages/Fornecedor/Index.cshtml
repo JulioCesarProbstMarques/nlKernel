@@ -27,7 +27,11 @@
                     <td>@item.Cnpj</td>
                     <td>@item.Email</td>
                     <td class="text-center">
-                        <a asp-page="Editar" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                        <a asp-page="Editar" asp-route-id="@item.Id" class="btn btn-sm btn-warning me-1">Editar</a>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" class="d-inline" onsubmit="return confirm('Tem certeza que deseja excluir este fornecedor?');">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                        </form>
                     </td>
                 </tr>
             }

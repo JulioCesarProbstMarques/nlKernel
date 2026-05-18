@@ -11,6 +11,7 @@
         </div>
         <div class="card-body">
             <form method="post">
+                @Html.AntiForgeryToken()
                 <input type="hidden" asp-for="Fornecedor.Id" />
 
                 <div class="row">
@@ -27,10 +28,48 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="Fornecedor.EnderecoCompleto" class="form-label font-weight-bold">Endereço Completo</label>
-                    <textarea asp-for="Fornecedor.EnderecoCompleto" class="form-control" rows="2" placeholder="Rua, Número, Bairro, Cidade - UF"></textarea>
-                    <span asp-validation-for="Fornecedor.EnderecoCompleto" class="text-danger"></span>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="Fornecedor.EnderecoCep" class="form-label font-weight-bold">CEP</label>
+                        <input asp-for="Fornecedor.EnderecoCep" class="form-control" />
+                        <span asp-validation-for="Fornecedor.EnderecoCep" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label asp-for="Fornecedor.EnderecoLogradouro" class="form-label font-weight-bold">Logradouro</label>
+                        <input asp-for="Fornecedor.EnderecoLogradouro" class="form-control" />
+                        <span asp-validation-for="Fornecedor.EnderecoLogradouro" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="Fornecedor.EnderecoNumero" class="form-label font-weight-bold">Número</label>
+                        <input asp-for="Fornecedor.EnderecoNumero" class="form-control" />
+                        <span asp-validation-for="Fornecedor.EnderecoNumero" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label asp-for="Fornecedor.EnderecoComplemento" class="form-label font-weight-bold">Complemento</label>
+                        <input asp-for="Fornecedor.EnderecoComplemento" class="form-control" />
+                        <span asp-validation-for="Fornecedor.EnderecoComplemento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="Fornecedor.EnderecoBairro" class="form-label font-weight-bold">Bairro</label>
+                        <input asp-for="Fornecedor.EnderecoBairro" class="form-control" />
+                        <span asp-validation-for="Fornecedor.EnderecoBairro" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Fornecedor.EnderecoCidade" class="form-label font-weight-bold">Cidade</label>
+                        <input asp-for="Fornecedor.EnderecoCidade" class="form-control" />
+                        <span asp-validation-for="Fornecedor.EnderecoCidade" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="Fornecedor.EnderecoEstado" class="form-label font-weight-bold">Estado</label>
+                        <input asp-for="Fornecedor.EnderecoEstado" class="form-control" />
+                        <span asp-validation-for="Fornecedor.EnderecoEstado" class="text-danger"></span>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -46,6 +85,8 @@
                         <span asp-validation-for="Fornecedor.Telefone" class="text-danger"></span>
                     </div>
                 </div>
+
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
                 <div class="d-flex justify-content-between mt-4">
                     <a asp-page="Index" class="btn btn-secondary">
